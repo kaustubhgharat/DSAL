@@ -10,7 +10,7 @@ public:
     Node *left, *right;
     int height;
 
-    Node(string key, string mean) {
+    Node(string key, string mean) {//#######################################
         keyword = key;
         meaning = mean;
         left = right = nullptr;
@@ -22,7 +22,7 @@ class Dictionary {
 private:
     Node* root;
 
-    int height(Node* node) {
+    int height(Node* node) {//#######################################
         if (!node) return 0;
         return node->height;
     }
@@ -32,9 +32,9 @@ private:
         return height(node->left) - height(node->right);
     }
 
-    Node* rightRotate(Node* y) {
+    Node* rightRotate(Node* y) {//#######################################
         Node* x = y->left;
-        Node* T2 = x->right;
+        Node* T2 = x->right;//#######################################
         x->right = y;
         y->left = T2;
         y->height = max(height(y->left), height(y->right)) + 1;
@@ -60,12 +60,12 @@ private:
         else if (key > node->keyword)
             node->right = insert(node->right, key, mean);
         else {
-            node->meaning = mean; // Update meaning if key already exists
+            node->meaning = mean;
             return node;
         }
 
-        node->height = max(height(node->left), height(node->right)) + 1;
-        int balance = getBalance(node);
+        node->height = max(height(node->left), height(node->right)) + 1;//#######################################
+        int balance = getBalance(node);//#######################################
 
         // LL Rotation
         if (balance > 1 && key < node->left->keyword) {
@@ -103,7 +103,7 @@ private:
         return current;
     }
 
-    void inOrder(Node* root) {
+    void inOrder(Node* root) {//#######################################
         if (root) {
             inOrder(root->left);
             cout << root->keyword << ": " << root->meaning << endl;
@@ -128,7 +128,7 @@ private:
         return search(root->right, key, comparisons);
     }
 
-    void printTreeWithBalance(Node* root, int level = 0) {
+    void printTreeWithBalance(Node* root, int level ) {//#######################################
         if (!root) return;
         cout << string(level * 4, ' ');
         if (level > 0) cout << "|-- ";
@@ -146,7 +146,7 @@ public:
         cout << "Inserting '" << key << "'...\n";
         root = insert(root, key, mean);
         cout << "Tree structure with balance factors after insertion:\n";
-        printTreeWithBalance(root);
+        printTreeWithBalance(root,0);
         cout << endl;
     }
 
@@ -166,7 +166,7 @@ public:
         cout << endl;
     }
 
-    void find(string key) {
+    void find(string key) {//#######################################
         int comparisons = 0;
         Node* result = search(root, key, comparisons);
         if (result)
@@ -178,7 +178,7 @@ public:
 
     void displayTreeWithBalance() {
         cout << "Current tree structure with balance factors:\n";
-        printTreeWithBalance(root);
+        printTreeWithBalance(root,0);
         cout << endl;
     }
 };
@@ -202,12 +202,12 @@ int main() {
     do {
         displayMenu();
         cin >> choice;
-        cin.ignore();
+        cin.ignore();//#######################################
 
         switch (choice) {
             case 1:
                 cout << "Enter keyword: ";
-                getline(cin, keyword);
+                getline(cin, keyword);//#######################################
                 cout << "Enter meaning: ";
                 getline(cin, meaning);
                 dict.add(keyword, meaning);

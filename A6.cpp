@@ -100,7 +100,7 @@ public:
         //         }
         //     }
         // }
-    void countComponents() {
+    void countComponents() {//#######################################
         vector<bool> visited(numberOfNodes, false);
         int count = 0;
 

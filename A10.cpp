@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-class Heap {
+class Heap {//#######################################
 public:
     // Heapify function to maintain the Min-Heap property
     void heapify(vector<int>& h, int i, int n) {
@@ -17,7 +17,7 @@ public:
             smallest = right;
         }
         if (smallest != i) {
-            swap(h[i], h[smallest]);
+            swap(h[i], h[smallest]);//#######################################
             heapify(h, smallest, n);
         }
     }
@@ -31,9 +31,9 @@ public:
 
         // Step 2: Extract elements from the heap one by one
         while (!h.empty()) {
-            sorted.push_back(h[0]);  // Extract min
-            h[0] = h.back();         // Move last to root
-            h.pop_back();            // Remove last
+            sorted.push_back(h[0]);  
+            h[0] = h.back();         //#######################################
+            h.pop_back();           
 
             if (!h.empty()) {
                 heapify(h, 0, h.size());
@@ -48,7 +48,7 @@ public:
             pass++;
         }
 
-        h = sorted;  // Final sorted array
+        h = sorted;  //#######################################
     }
 };
 
@@ -67,7 +67,7 @@ int main() {
     }
 
     // Build min heap
-    for (int i = arr.size() / 2 - 1; i >= 0; i--) {
+    for (int i = arr.size() / 2 - 1; i >= 0; i--) {//#######################################
         h.heapify(arr, i, arr.size());
     }
 
@@ -78,7 +78,7 @@ int main() {
     cout << endl;
 
     cout << "After sorting:\n";
-    h.heapSort(arr);
+    h.heapSort(arr);//#######################################
 
     cout << "Final sorted array: ";
     for (int val : arr) {
