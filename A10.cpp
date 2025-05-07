@@ -17,7 +17,7 @@ public:
             smallest = right;
         }
         if (smallest != i) {
-            swap(h[i], h[smallest]);//#######################################
+            swap(h[i], h[smallest]);
             heapify(h, smallest, n);
         }
     }
@@ -27,15 +27,15 @@ public:
         int n = h.size();
 
         vector<int> sorted;
-        int pass = 1;
+        int pass = 1;//###################################
 
-        // Step 2: Extract elements from the heap one by one
+        
         while (!h.empty()) {
             sorted.push_back(h[0]);  
             h[0] = h.back();         //#######################################
             h.pop_back();           
 
-            if (!h.empty()) {
+            if (!h.empty()) {//#######################################
                 heapify(h, 0, h.size());
             }
 
@@ -78,7 +78,7 @@ int main() {
     cout << endl;
 
     cout << "After sorting:\n";
-    h.heapSort(arr);//#######################################
+    h.heapSort(arr);
 
     cout << "Final sorted array: ";
     for (int val : arr) {

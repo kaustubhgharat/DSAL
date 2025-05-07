@@ -16,7 +16,7 @@ public:
 };
 
 class Htable{
-    vector<Node*> vec;
+    vector<Node*> vec;//###################################
 
 public:
     Htable() {
@@ -31,12 +31,12 @@ public:
 
     void Insert(int val) { 
         int hashKey = HashCode(val);
-        Node* temp = new Node(val);
+        Node* temp = new Node(val);//###################################
 
         if(!vec[hashKey]){
             vec[hashKey] = temp;
         } else {
-            Node* head = vec[hashKey];
+            Node* head = vec[hashKey];//###################################
             while(head->next != NULL){
                 head = head->next;
             }
@@ -87,7 +87,7 @@ public:
            Node* head = vec[hashKey];
 
            if(head->data == val){
-               vec[hashKey] = head->next;
+               vec[hashKey] = head->next;//###################################
                delete head;
                cout << "Deleted "<< val << endl;
                return;
@@ -97,10 +97,10 @@ public:
                head = head->next;
            }
 
-           if(head->next == NULL){
+           if(head->next == NULL){//###################################
                cout<<"NOT FOUND to Delete"<<endl;
            } else {
-               Node* del = head->next;
+               Node* del = head->next;//###################################
                head->next = head->next->next;
                del->next = NULL;
                delete del;

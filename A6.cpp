@@ -26,7 +26,7 @@ public:
             return;
         }
         adj[i].push_back(j);
-        adj[j].push_back(i); // Undirected graph
+        adj[j].push_back(i); 
         deg[i]++;
         deg[j]++;
     }
@@ -114,7 +114,7 @@ public:
         cout << "\nNumber of connected components: " << connectedComp << endl;
     }
 
-    void displayDegree() {
+    void displayDegree() {//###################################
         cout << "Node Degrees:" << endl;
         for (int i = 0; i < numberOfNodes; i++) {
             cout << "Node " << i << " has degree " << deg[i] << endl;

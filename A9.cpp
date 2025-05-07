@@ -10,7 +10,7 @@ public:
     Node *left, *right;
     int height;
 
-    Node(string key, string mean) {//#######################################
+    Node(string key, string mean) {
         keyword = key;
         meaning = mean;
         left = right = nullptr;
@@ -19,7 +19,7 @@ public:
 };
 
 class Dictionary {
-private:
+private://###################################
     Node* root;
 
     int height(Node* node) {//#######################################
@@ -34,7 +34,7 @@ private:
 
     Node* rightRotate(Node* y) {//#######################################
         Node* x = y->left;
-        Node* T2 = x->right;//#######################################
+        Node* T2 = x->right;
         x->right = y;
         y->left = T2;
         y->height = max(height(y->left), height(y->right)) + 1;

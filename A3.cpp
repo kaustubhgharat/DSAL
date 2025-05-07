@@ -10,7 +10,7 @@ struct Node {
 
 Node* createNode(int key) {
     Node* temp = new Node();
-    temp->key = key;
+    temp->key = key;//###################################
     temp->left = temp->right = nullptr;
     temp->lthread = temp->rthread = true;
     return temp;
@@ -21,8 +21,8 @@ Node* insert(Node* root, int key) {
     if (root == nullptr) {
         return newNode;
     }
-    Node* parent = nullptr;
-    Node* current = root;
+    Node* parent = nullptr;//###################################
+    Node* current = root;//###################################
 
     while (current != nullptr) {
         parent = current;
@@ -53,7 +53,7 @@ Node* insert(Node* root, int key) {
         parent->rthread = false;
     }
 
-    return root;
+    return root;//###################################
 }
 
 void inorderTraversal(Node* root) {
@@ -64,7 +64,7 @@ void inorderTraversal(Node* root) {
         current = current->left;
     }
 
-    while (current != nullptr) {
+    while (current != nullptr) {//###################################
         cout << current->key << " ";
         
         if (current->rthread) {
@@ -89,9 +89,9 @@ void preorderTraversal(Node* root) {
         } else if (!current->rthread) {
             current = current->right;
         } else {
-            // Follow threads until you find a right child or reach the end
+            
             while (current != nullptr && current->rthread) {
-                current = current->right;
+                current = current->right;//###################################
             }
             if (current != nullptr) {
                 current = current->right;
@@ -218,7 +218,7 @@ void displayMenu() {
 }
 
 int main() {
-    Node* root = nullptr;
+    Node* root = nullptr;//###################################
     int key, choice;
     
     while (true) {

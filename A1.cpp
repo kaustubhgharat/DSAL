@@ -66,7 +66,7 @@ public:
     void preOrderNR() {
        if (root == nullptr)
            return;
-       stack<TreeNode*> s;
+       stack<TreeNode*> s;//###################################
        s.push(root);
        while (!s.empty()) {
            TreeNode* current = s.top();
@@ -81,7 +81,7 @@ public:
            return;
        stack<TreeNode*> s;
        TreeNode* current = root;
-       while (!s.empty() || current != nullptr) {
+       while (!s.empty() || current != nullptr) {//###################################
            if (current != nullptr) {
                s.push(current);
                current = current->left;

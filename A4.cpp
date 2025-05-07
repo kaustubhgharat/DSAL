@@ -6,10 +6,9 @@ using namespace std;
 class HashTable {
 
 private:
-    int cnt = 0;
+    int cnt = 0;//###################################
     int hashArray[SIZE];  
 
-    // Hash function 
     int hashCode(int data) {
         return data % SIZE;
     }
@@ -45,7 +44,7 @@ public:
         int temp, comp = 0;
 
 
-        if(hashArray[hashIndex] != -1) comp = -1;
+        if(hashArray[hashIndex] != -1) comp = -1;//###################################
 
         if(newHash == hashIndex){
             temp = data;
@@ -60,7 +59,7 @@ public:
             hashIndex = (hashIndex + 1) % SIZE;
         }
 
-        hashArray[hashIndex] = temp;
+        hashArray[hashIndex] = temp;//###################################
         cnt++;
 
         cout<<"Data inserted with "<< comp <<" comparisons "<<endl;
@@ -95,20 +94,20 @@ public:
         int mark = hashIndex;
         int t2 = 0;
 
-        while (hashArray[hashIndex] != -1) {
+        while (hashArray[hashIndex] != -1) {//###################################
             if(mark == hashIndex) t2++;
 
-            if(t2 == 2){ // If not found by wrappping also
+            if(t2 == 2){ 
                 return {false, -1};
             }
 
             if (hashArray[hashIndex] == data) {
-                return {true, hashIndex};  // Data found
+                return {true, hashIndex}; 
             }
             hashIndex = (hashIndex + 1) % SIZE;
         }
 
-        return {false, -1};  // Data not found
+        return {false, -1}; 
     }
 
     bool deleteItem(int data) {
@@ -125,17 +124,17 @@ public:
             }
 
             if (hashArray[hashIndex] == data) {
-                hashArray[hashIndex] = -1;  // Mark deleted slot with -1
+                hashArray[hashIndex] = -1;  
                 cnt--;
-                return true;  // Data deleted
+                return true;  
             }
             hashIndex = (hashIndex + 1) % SIZE;
         }
 
-        return false;  // Data not found
+        return false;  
     }
 
-    // Printing the hash table
+    
     void display() {
         for (int i = 0; i < SIZE; i++) {
             if (hashArray[i] == -1) {
@@ -181,7 +180,7 @@ int main() {
                 cout << "Enter data to search: ";
                 cin >> data;
                 srch = hashTable.search(data);
-                if (srch.first) {
+                if (srch.first) {//###################################
                     cout << "Data found: " << data <<" at idx = "<< srch.second << endl;
                 } else {
                     cout << "Data not found." << endl;
@@ -191,7 +190,7 @@ int main() {
             case 4:
                 cout << "Enter data to delete: ";
                 cin >> data;
-                if (hashTable.deleteItem(data)) {
+                if (hashTable.deleteItem(data)) {//###################################
                     cout << "Data deleted: " << data << endl;
                 } else {
                     cout << "Data not found to delete." << endl;

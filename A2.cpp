@@ -27,7 +27,7 @@ public:
         if (!root) return new Node(data);
 
         if (data <= root->data) {
-            root->left = insert(root->left, data);
+            root->left = insert(root->left, data);//###################################
         } else {
             root->right = insert(root->right, data);
         }
@@ -69,12 +69,12 @@ public:
 
         cout << "Comparing with: " << root->data << endl;
         
-        if (root->data == data) {
+        if (root->data == data) {//###################################
             cout << "Node " << root->data << " Found!" << endl;
             return;
         }
 
-        if ((isMirrored && data > root->data) || (!isMirrored && data < root->data)) {
+        if ((isMirrored && data > root->data) || (!isMirrored && data < root->data)) {//###################################
             search(root->left, data);
         } else {
             search(root->right, data);
@@ -101,7 +101,7 @@ public:
         if (!root) return root;
 
         if ((isMirrored && data > root->data) || (!isMirrored && data < root->data)) {
-            root->left = deleteNode(root->left, data);
+            root->left = deleteNode(root->left, data);//###################################
         } else if ((isMirrored && data < root->data) || (!isMirrored && data > root->data)) {
             root->right = deleteNode(root->right, data);
         } else {
@@ -184,7 +184,7 @@ int main() {
 
             case 6:
 				if(!flag){
-                	if (tree.root) {
+                	if (tree.root) {//###################################
                 	    cout << "Minimum value in the BST: " << tree.minimum(tree.root) << endl;
                 	} else {
                 	    cout << "Tree is empty!" << endl;
